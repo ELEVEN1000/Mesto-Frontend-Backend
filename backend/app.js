@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const errors = require('./middlewares/errorHandler');
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
@@ -11,6 +12,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 const { PORT = 3000 } = process.env;
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
