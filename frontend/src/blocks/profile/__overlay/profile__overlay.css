@@ -1,0 +1,34 @@
+.profile__overlay {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor:pointer;
+  margin-right: 30px;
+}
+.profile__overlay::after {
+  content: '';
+  background-image: url('../../../images/editAvatar.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+  opacity: 0;
+  width: 26px;
+  height: 26px;
+}
+.profile__overlay:hover .profile__avatar {
+  opacity: 0.4;
+}
+.profile__overlay:hover::after {
+  opacity: 1;
+}
+@media screen and (max-width: 880px) {
+  .profile__overlay {
+    margin: 0;
+  }
+}
