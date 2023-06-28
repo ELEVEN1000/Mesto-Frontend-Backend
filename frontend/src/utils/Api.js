@@ -107,7 +107,7 @@ class Api {
 const api = new Api({
   url: "https://api.mikryukovka.nomoreparties.sbs",
   headers: {
-    authorization: "f25fbe14-dc88-4ce0-9d20-57a9d8410bd7",
+    authorization: "",
     "Content-Type": "application/json",
   }
 })
