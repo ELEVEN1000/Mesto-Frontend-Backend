@@ -77,6 +77,7 @@ function App() {
         setFormValue({ email: "", password: "" });
         setLoggedIn(true);
         setEmail(email);
+        Api.setToken(data.jwtToken)
         navigate("/", { replace: true });
       })
       .catch((err) => {
@@ -93,6 +94,7 @@ function App() {
     if (jwt) {
       checkToken(jwt)
         .then((res) => {
+          Api.setToken(jwt);
           setLoggedIn(true);
           setEmail(res.data.email);
           navigate("/", { replace: true });

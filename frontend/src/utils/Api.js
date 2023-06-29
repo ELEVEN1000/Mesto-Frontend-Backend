@@ -52,6 +52,11 @@ class Api {
       .then(this._checkServerResponse)
   }
 
+  setToken(token) {
+    console.log('this._headers');
+    this._headers.authorization = `Bearer ${token}`;
+  }
+
   // Замена данных пользователя
   changeProfile(data) {
     console.log(data);
