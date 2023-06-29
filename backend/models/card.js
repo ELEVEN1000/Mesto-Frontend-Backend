@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const cardSchema = new mongoose.Schema({
-  title: {
+  name: {
     type: String,
     required: true,
     minlength: 2,
