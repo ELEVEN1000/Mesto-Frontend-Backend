@@ -77,7 +77,8 @@ function App() {
         setFormValue({ email: "", password: "" });
         setLoggedIn(true);
         setEmail(email);
-        Api.setToken(data.jwtToken)
+        Api.setToken(data.jwtToken);
+        console.log(data);
         navigate("/", { replace: true });
       })
       .catch((err) => {
