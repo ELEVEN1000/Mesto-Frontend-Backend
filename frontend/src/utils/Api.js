@@ -53,7 +53,6 @@ class Api {
   }
 
   setToken(token) {
-    console.log('this._headers');
     this._headers.authorization = `Bearer ${token}`;
   }
 

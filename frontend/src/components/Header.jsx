@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import Logo from "../images/Logo.svg"
 import {Routes, Route, Link} from "react-router-dom";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
-function Header({ email, onSignOut }) {
+function Header({ onSignOut }) {
+  const currentUser = useContext(CurrentUserContext);
   return (
     <header className="header">
       <img src={Logo} alt="Логотип" className="header__logo"/>
@@ -27,7 +29,7 @@ function Header({ email, onSignOut }) {
           path="/"
           element={
             <div className="header__user-info">
-              <p className="header__user-email">{email}</p>
+              <p className="header__user-email">{currentUser.email}</p>
               <button className="header__button-logout" onClick={onSignOut}>
                 Выйти
               </button>

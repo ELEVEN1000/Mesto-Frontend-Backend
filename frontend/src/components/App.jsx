@@ -27,7 +27,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
     email: "",
@@ -42,7 +41,6 @@ function App() {
   const signOut = () => {
     localStorage.removeItem("jwt");
     setLoggedIn(false);
-    setEmail("");
     navigate("/sign-in", { replace: true });
   };
 
@@ -76,9 +74,7 @@ function App() {
       .then((data) => {
         setFormValue({ email: "", password: "" });
         setLoggedIn(true);
-        setEmail(email);
         Api.setToken(data.jwtToken);
-        console.log(data);
         navigate("/", { replace: true });
       })
       .catch((err) => {
@@ -94,10 +90,9 @@ function App() {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       checkToken(jwt)
-        .then((res) => {
+        .then(() => {
           Api.setToken(jwt);
           setLoggedIn(true);
-          setEmail(res.data.email);
           navigate("/", { replace: true });
         })
         .catch((err) => {
@@ -108,7 +103,7 @@ function App() {
 
   // Функция добавления/удаления лайков ---------------------------------------------------------
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     Api.addLike(card._id, !isLiked).then((newCard) => {
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
     })
@@ -219,7 +214,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header email={email} onSignOut={signOut} />
+        <Header onSignOut={signOut} />
         <Routes>
           <Route
             path="/"
