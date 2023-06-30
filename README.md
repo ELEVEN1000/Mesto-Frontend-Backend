@@ -4,8 +4,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.76.3
+IP 51.250.76.3;
 
-Frontend https://mikryukovka.nomoredomains.rocks/
+Frontend https://mikryukovka.nomoredomains.rocks;
 
-Backend https://api.mikryukovka.nomoreparties.sbs/
+Backend https://api.mikryukovka.nomoreparties.sbs;
