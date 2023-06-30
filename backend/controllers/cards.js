@@ -23,7 +23,7 @@ const formatCard = (card) => ({
     _id: user._id,
   })),
   _id: card._id,
-  name: card.title,
+  name: card.name,
   link: card.link,
   owner: {
     name: card.owner.name,
