@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import './Header.jsx';
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
@@ -10,7 +10,7 @@ import CurrentUserContext from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Login from "./Login.jsx";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from "./Register";
