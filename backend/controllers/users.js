@@ -10,6 +10,8 @@ const ConflictError = require('../utils/errors/conflictError');
 const NotFoundError = require('../utils/errors/notFoundError');
 const UnauthorizedError = require('../utils/errors/unauthorizedError');
 
+const { JWT_SECRET = config.jwtSecretKey } = process.env;
+
 const {
   SUCCESS_STATUS,
   CREATED_STATUS,
@@ -73,7 +75,7 @@ const login = (req, res, next) => {
     .orFail()
     .then((user) => bcrypt.compare(password, user.password).then((match) => {
       if (match) {
-        const token = jwt.sign({ _id: user._id }, config.jwtSecretKey, {
+        const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
           expiresIn: '7d',
         });
         res.cookie('jwtToken', token, {
