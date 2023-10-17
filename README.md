@@ -6,6 +6,6 @@
 
 IP 51.250.76.3;
 
-Frontend https://mikryukovka.nomoredomains.rocks;
+Frontend https://mikryukovka.nomoredomains.rocks; (Ссылка не работает, т.к сервер выключен)
 
 Backend https://api.mikryukovka.nomoreparties.sbs;
